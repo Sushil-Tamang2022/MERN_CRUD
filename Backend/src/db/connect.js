@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
-export const connectDb = async () => {
-  try {
-    await mongoose.connect("mongodb://localhost:27017/h58_Crud");
-    console.log(`Database connected successfully!`);
-  } catch (e) {
-    console.log(`Error while connecting Database ${e}`);
-  }
-};
+
+const connectDB = async()=>{
+try {
+    await mongoose.connect("mongodb://127.0.0.1:27017/H-58")
+  console.log("Database connected successfully")
+} catch (error) {
+  console.error("Failed to connect the database")
+  process.exit(1)
+}
+}
+export {connectDB}

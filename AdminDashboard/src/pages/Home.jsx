@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const baseUrl = "http://localhost:9000/api/product";
 function Home() {
+
   const [products, setProducts] = useState([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState(null);
+
+  const navigate = useNavigate();
+
+
 
   const getProduct = async () => {
     let res = await fetch(`${baseUrl}/getProduct`);
@@ -163,7 +169,9 @@ function Home() {
                           >
                             Delete
                           </button>
-                          <button className="bg-orange-500 p-2 text-white rounded-xl w-20 ">
+                          <button onClick={() => navigate('/editProduct')}
+                      
+                          className="bg-orange-500 p-2 text-white rounded-xl w-20 ">
                             Edit
                           </button>
                         </td>
